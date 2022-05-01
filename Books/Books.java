@@ -64,7 +64,29 @@ public class Books
                 int numberOfPages = Integer.parseInt(scanner.nextLine());
                 System.out.println("Enter the cost of the new book");
                 double cost = Double.parseDouble(scanner.nextLine());
-                books[book_counter++] = new Book(id, title, author, publisher, year, numberOfPages, cost);
+                if(id.length() == 0) {
+                    System.out.println("Id is empty");
+                }
+                else if(title.length() == 0) {
+                    System.out.println("title is empty");
+                }
+                else if(author.length() == 0) {
+                    System.out.println("author is empty");
+                }
+                else if(publisher.length() == 0) {
+                    System.out.println("publisher is empty");
+                }
+                else if(year < 0 || year > 2022) {
+                    System.out.println("bad year");
+                }
+                else if(numberOfPages < 1) {
+                    System.out.println("bad numberOfPages");
+                }
+                else if(cost < 0 ) {
+                    System.out.println("bad cost");
+                }
+                else
+                    books[book_counter++] = new Book(id, title, author, publisher, year, numberOfPages, cost);
             }
             if(cmd.equals("showId")) {
                 System.out.println("Enter book index:");
